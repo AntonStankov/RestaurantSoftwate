@@ -57,6 +57,7 @@ public class MealServiceImpl implements MealService {
         meal.setAvailabilityInRestaurant1(dto.getAvailabilityInRestaurant1());
         meal.setAvailabilityInRestaurant2(dto.getAvailabilityInRestaurant2());
         meal.setWeight(dto.getWeight());
+        meal.setImageBytes(dto.getImageBytes());
         return saveMeal(meal);
     }
 

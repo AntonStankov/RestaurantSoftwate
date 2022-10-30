@@ -22,4 +22,5 @@ public class MealDto {
     private String products1;
     private List<String> products;
     private float weight;
+    private byte[] imageBytes;
 }

@@ -48,4 +48,8 @@ public class Meal {
     @Column
     private float weight;
 
+    @Lob
+    @Column(columnDefinition="BLOB")
+    private byte[] imageBytes;
+
 }

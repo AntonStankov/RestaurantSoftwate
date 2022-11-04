@@ -32,7 +32,7 @@ public class MealController {
     MealService mealService;
 
     @PostMapping("/addMeal")
-    public MealDto addMeal(@RequestBody MealDto dto, @RequestParam("image") MultipartFile image) throws IOException {
+    public MealDto addMeal(@RequestBody MealDto dto) throws IOException {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetails principal = (UserDetails) authentication.getPrincipal();
         UserDomain user =  userService.findByUsername(principal.getUsername());

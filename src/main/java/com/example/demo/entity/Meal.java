@@ -2,7 +2,9 @@ package com.example.demo.entity;
 
 import com.example.demo.enums.MealCategory;
 import lombok.*;
+import org.hibernate.annotations.Type;
 import org.springframework.lang.Nullable;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import java.util.List;
@@ -49,7 +51,7 @@ public class Meal {
     private float weight;
 
     @Lob
-    @Column(columnDefinition="BLOB")
-    private byte[] imageBytes;
+    @Type(type = "org.hibernate.type.ImageType")
+    private byte[] image;
 
 }

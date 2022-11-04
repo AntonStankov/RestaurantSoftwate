@@ -25,13 +25,13 @@ public class Mapper {
         if(meal == null){
             return null;
         }
-        return new MealDto(meal.getId(), meal.getName(), meal.getCategory(), meal.getPrice(),meal.getAvailabilityInRestaurant1(), meal.getAvailabilityInRestaurant2(), meal.getProducts(), null, meal.getWeight(), meal.getImageBytes());
+        return new MealDto(meal.getId(), meal.getName(), meal.getCategory(), meal.getPrice(),meal.getAvailabilityInRestaurant1(), meal.getAvailabilityInRestaurant2(), meal.getProducts(), null, meal.getWeight(), meal.getImage());
     }
 
     public static Meal toMealDomain(MealDto dto){
         if(dto == null){
             return null;
         }
-        return new Meal(null, dto.getName(), dto.getCategory(), dto.getPrice(), dto.getAvailabilityInRestaurant1(), dto.getAvailabilityInRestaurant2(),dto.getProducts1(), dto.getWeight(), dto.getImageBytes());
+        return new Meal(null, dto.getName(), dto.getCategory(), dto.getPrice(), dto.getAvailabilityInRestaurant1(), dto.getAvailabilityInRestaurant2(),dto.getProducts1(), dto.getWeight(), dto.getImage());
     }
 }

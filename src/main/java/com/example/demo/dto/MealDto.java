@@ -4,7 +4,9 @@ package com.example.demo.dto;
 import com.example.demo.entity.ProductsDomain;
 import com.example.demo.enums.MealCategory;
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.persistence.Column;
 import java.util.List;
 
 @AllArgsConstructor
@@ -22,5 +24,6 @@ public class MealDto {
     private String products1;
     private List<String> products;
     private float weight;
-    private byte[] imageBytes;
+    private byte[] image;
+
 }

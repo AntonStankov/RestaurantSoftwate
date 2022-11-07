@@ -49,9 +49,9 @@ public class MealServiceImpl implements MealService {
         }
         String finalProducts = null;
         for(int i = 0; i < prd.size(); i++){
-            finalProducts += prd.get(i) + " ";
+            finalProducts += prd.get(i) + ", ";
         }
-        finalProducts = finalProducts.substring(4, finalProducts.length());
+        finalProducts = finalProducts.substring(4, finalProducts.length() - 2);
         meal.setProducts(finalProducts);
         meal.setPrice(dto.getPrice());
         meal.setAvailabilityInRestaurant1(dto.getAvailabilityInRestaurant1());

@@ -51,10 +51,23 @@ public class MealController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetails principal = (UserDetails) authentication.getPrincipal();
         UserDomain user =  userService.findByUsername(principal.getUsername());
+        String fileName = image.getOriginalFilename();
 
+        int count = 0;
+        for(int i = 0; i <= fileName.length(); i++){
+            if(fileName.charAt(i) == '.'){
+                count = i;
+                break;
+            }
+        }
+        fileName = fileName.substring(count + 1);
         Meal meal = mealService.findById(id);
         if(user.getType().toString().equals("SUPERADMIN")){
-            meal.setImage(image.getBytes());
+            if(fileName.equals("png") || fileName.equals("jpeg") || fileName.equals("jpg") || fileName.equals("gif") || fileName.equals("tiff")){
+                meal.setImage(image.getBytes());
+            }
+            else throw new RuntimeException("Unsupported file type! It should be png, jpeg, jpg, gif or tiff");
+
         }
         return mealService.editAvailability(meal);
 

@@ -6,19 +6,13 @@ import com.example.demo.entity.UserDomain;
 import com.example.demo.service.MealService;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 @RestController
@@ -63,10 +57,10 @@ public class MealController {
         fileName = fileName.substring(count + 1);
         Meal meal = mealService.findById(id);
         if(user.getType().toString().equals("SUPERADMIN")){
-            if(fileName.equals("png") || fileName.equals("jpeg") || fileName.equals("jpg") || fileName.equals("gif") || fileName.equals("tiff")){
+//            if(fileName.equals("png") || fileName.equals("jpeg") || fileName.equals("jpg") || fileName.equals("gif") || fileName.equals("tiff")){
                 meal.setImage(image.getBytes());
-            }
-            else throw new RuntimeException("Unsupported file type! It should be png, jpeg, jpg, gif or tiff");
+//            }
+//            else throw new RuntimeException("Unsupported file type! It should be png, jpeg, jpg, gif or tiff");
 
         }
         return mealService.editAvailability(meal);
